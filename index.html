@@ -85,18 +85,35 @@
                 width: 7rem;
                 height: 6rem;
             }
+
+            img.berry-move {
+                -webkit-animation: mover 1s infinite  alternate;
+                animation: mover 1s infinite  alternate;
+            }
+            img.berry-move {
+                -webkit-animation: mover 1s infinite  alternate;
+                animation: mover 1s infinite  alternate;
+            }
+            @-webkit-keyframes mover {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-5vh); }
+            }
+            @keyframes mover {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-5vh); }
+            }
         </style>
     </head>
     <body>
         <div class='container'>
             <div class='item type-a'>
-                <img src='img/strawberry-img.png' class='berry'>
+                <img src='img/strawberry-img.png' class='berry berry-move'>
             </div>
             <div class='item type-b'>
                 <img src='img/strawberry-img.png' class='berry'>
             </div>
             <div class='item type-c'>
-                <img src='img/strawberry-img.png' class='berry'>
+                <img src='img/strawberry-img.png' class='berry berry-move'>
             </div>
         </div>
     </body>
