@@ -86,19 +86,27 @@
                 height: 6rem;
             }
 
-            img.berry-move {
-                -webkit-animation: mover 1s infinite  alternate;
-                animation: mover 1s infinite  alternate;
+            img.berry-move-up {
+                -webkit-animation: move-up 1s infinite  alternate;
+                animation: move-up 1s infinite  alternate;
             }
-            img.berry-move {
-                -webkit-animation: mover 1s infinite  alternate;
-                animation: mover 1s infinite  alternate;
+            img.berry-move-down {
+                -webkit-animation: move-down 1s infinite  alternate;
+                animation: move-down 1s infinite  alternate;
             }
-            @-webkit-keyframes mover {
+            @-webkit-keyframes move-up {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(5vh); }
+            }
+            @keyframes move-up {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(5vh); }
+            }
+            @-webkit-keyframes move-down {
                 0% { transform: translateY(0); }
                 100% { transform: translateY(-5vh); }
             }
-            @keyframes mover {
+            @keyframes move-down {
                 0% { transform: translateY(0); }
                 100% { transform: translateY(-5vh); }
             }
@@ -107,13 +115,13 @@
     <body>
         <div class='container'>
             <div class='item type-a'>
-                <img src='img/strawberry-img.png' class='berry berry-move'>
+                <img src='img/strawberry-img.png' class='berry berry-move-up'>
             </div>
             <div class='item type-b'>
                 <img src='img/strawberry-img.png' class='berry'>
             </div>
             <div class='item type-c'>
-                <img src='img/strawberry-img.png' class='berry berry-move'>
+                <img src='img/strawberry-img.png' class='berry berry-move-down'>
             </div>
         </div>
     </body>
