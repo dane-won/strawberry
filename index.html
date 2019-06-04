@@ -53,13 +53,29 @@
             }
             /*여기까지 CSS RESET*/
 
-            .container {
+            .container1 {
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
                 width: 100vw; /*16:9=100vh:56.25vh*/
-                height: 200vh;
+                height: 100vh;
                 background-color: aquamarine;
+            }
+            .container2 {
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                width: 100vw;
+                height: 300vh;
+                background-color: whitesmoke;
+            }
+            .container3 {
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                width: 100vw;
+                height: 200vh;
+                background-color: lightgray;
             }
             .guide{
                 display: flex;  
@@ -87,6 +103,9 @@
             .type-c{
                 background-color: red;
             }
+            .type-d{
+                background-image: black;
+            }
             
             .char{
                 width: 80vw;
@@ -96,7 +115,6 @@
                 display: flex;
                 background-repeat: no-repeat;
                 background-position: 50% bottom;
-                background-repeat: no-repeat;
                 background-size: contain;
                 transition: 0.3s;
             }
@@ -115,8 +133,8 @@
 
             .sana{
                 /* background-image: url('img/sana-01.png'); */
-                width: 80vw;
-                
+                width: 100vw;
+                height: 1000vh;
             }
 
             .berry{
@@ -213,7 +231,7 @@
     <body>
         <nav class="output">00</nav>
         <header></header>
-        <div class='container'>
+        <div class='container1'>
                 <!-- <div class='guide type-c'>
                     <h1>STRAWBERRY</h1>
                 </div> -->
@@ -229,12 +247,10 @@
             </div>
         </div>
 
-        <div class='container'>
-            <div class='stage type-c'>
-                <!-- <div class="char sana"></div> -->
-                <img class='sana' src='img/sana-01.png'>
-            </div>
+        <div class='container2'>
+                <div class="char sana"></div>
         </div>
+        <div class='container2'></div>
     </div>
 
         <script>
@@ -270,18 +286,20 @@
                     }
 
                     if(posY>-1100) {
-                        sanaElem.src = 'img/sana-01.png';
-                    }else if(posY>-1150) {
-                        sanaElem.src = 'img/sana-02.png';
+                        //document.getElementById("p2").style.color = "blue";
+                        sanaElem.style.background = "url('img/sana-01.png') center no-repeat fixed ";
+                    }else if(posY>-1100) {
+                        sanaElem.style.background = "url('img/sana-02.png') center no-repeat fixed ";
                     }else if(posY>-1200) {
-                        sanaElem.src = 'img/sana-03.png';
-                    }else if(posY>-1250) {
-                        sanaElem.src = 'img/sana-04.png';
+                        sanaElem.style.background = "url('img/sana-03.png') center no-repeat fixed ";
                     }else if(posY>-1300) {
-                        sanaElem.src = 'img/sana-05.png';
-                    }else if(posY>-1350) {
-                        sanaElem.src = 'img/sana-06.png';
+                        sanaElem.style.background = "url('img/sana-04.png') center no-repeat fixed ";
+                    }else if(posY>-1400) {
+                        sanaElem.style.background = "url('img/sana-05.png') center no-repeat fixed ";
+                    }else if(posY>-1500) {
+                        sanaElem.style.background = "url('img/sana-06.png') center no-repeat fixed ";
                     }
+                    sanaElem.style.backgroundSize = "cover";
                     
                 }
 
