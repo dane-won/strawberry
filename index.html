@@ -2,231 +2,7 @@
 <html>  
     <head>
         <title>TWICE Proj</title>
-        <style>
-            /*여기부터는 CSS RESET*/
-            /* http://meyerweb.com/eric/tools/css/reset/ 
-            v2.0 | 20110126
-            License: none (public domain)
-            */
-            html, body, div, span, applet, object, iframe,
-            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-            a, abbr, acronym, address, big, cite, code,
-            del, dfn, em, img, ins, kbd, q, s, samp,
-            small, strike, strong, sub, sup, tt, var,
-            b, u, i, center,
-            dl, dt, dd, ol, ul, li,
-            fieldset, form, label, legend,
-            table, caption, tbody, tfoot, thead, tr, th, td,
-            article, aside, canvas, details, embed, 
-            figure, figcaption, footer, header, hgroup, 
-            menu, nav, output, ruby, section, summary,
-            time, mark, audio, video {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                font-size: 100%;
-                font: inherit;
-                vertical-align: baseline;
-            }
-            /* HTML5 display-role reset for older browsers */
-            article, aside, details, figcaption, figure, 
-            footer, header, hgroup, menu, nav, section {
-                display: block;
-            }
-            body {
-                line-height: 1;
-            }
-            ol, ul {
-                list-style: none;
-            }
-            blockquote, q {
-                quotes: none;
-            }
-            blockquote:before, blockquote:after,
-            q:before, q:after {
-                content: '';
-                content: none;
-            }
-            table {
-                border-collapse: collapse;
-                border-spacing: 0;
-            }
-            /*여기까지 CSS RESET*/
-
-            .container1 {
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                width: 100vw; /*16:9=100vh:56.25vh*/
-                height: 100vh;
-                background-color: aquamarine;
-            }
-            .container2 {
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                width: 100vw;
-                height: 300vh;
-                background-color: whitesmoke;
-            }
-            .container3 {
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                width: 100vw;
-                height: 200vh;
-                background-color: lightgray;
-            }
-            .guide{
-                display: flex;  
-                justify-content: center;
-                align-items: center;
-                width: 100vw;
-                height: 20vh;
-            }
-            .stage{
-                display: flex;  
-                justify-content: center;
-                align-items: center;
-                width: 100vw;
-                height: 100vh;
-                background-image: url('img/berry-img.png');
-                background-repeat: repeat;
-                background-size: 12.5%;
-            }
-            .type-a{
-                background-color: pink;
-            }
-            .type-b{
-                background-color: hotpink;
-            }
-            .type-c{
-                background-color: red;
-            }
-            .type-d{
-                background-image: black;
-            }
-            
-            .char{
-                width: 80vw;
-                height: 80vh;
-                top:10vh;
-                position: relative;
-                display: flex;
-                background-repeat: no-repeat;
-                background-position: 50% bottom;
-                background-size: contain;
-                transition: 0.3s;
-            }
-            
-            .jihyo{
-                background-image: url('img/jihyo.png');
-            }
-            .char.zoom{
-                -webkit-transform: scale(0.75);
-                transform: scale(0.75);
-            }
-
-            .mina{
-                background-image: url('img/mina.png');
-            }
-
-            .sana{
-                /* background-image: url('img/sana-01.png'); */
-                width: 100vw;
-                height: 1000vh;
-            }
-
-            .berry{
-                position:relative;
-                display: flex;
-                width: 20vh;
-                height: 20vh;
-                background-image: url('img/berry-img.png');
-                background-repeat: no-repeat;
-                background-position: 50% 50%;
-                background-size: contain;
-                transition: 0.3s;
-            }
-            .berry:hover{
-                width: 5.25rem;
-                height: 4.5rem;
-            }
-
-            /*천천히 좌우로 흔들리는 애니메이션*/
-            .char-move {
-                -webkit-animation: char-move 10s infinite  alternate;
-                animation: char-move 10s infinite  alternate;
-            }
-            @-webkit-keyframes char-move {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(10vw); }
-            }
-            @keyframes char-move {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(10vw); }
-            }
-
-            h1{
-                display: block;
-                font-size: 5vw;
-                margin-top: 0.67em;
-                margin-bottom: 0.67em;
-                margin-left: 0;
-                margin-right: 0;
-                font-weight: bold;
-                color: white;
-            }
-            .z-index-1{
-                z-index: 1;
-            }
-            .z-index-3{
-                z-index: 3;
-            }
-            .z-index-5{
-                z-index: 5;
-            }
-            .z-index-7{
-                z-index: 7;
-            }
-            .z-index-10{
-                z-index: 10;
-            }
-            .z-index-100{
-                z-index: 100;
-            }
-            .center-half-top{
-                position: absolute;;
-                top:80vh; /*이거를 동적으로 맞춰줄 방법을 찾자*/
-            }
-            .center-half-bottom{
-                position:absolute;
-                top:125vh;  /*이거를 동적으로 맞춰줄 방법을 찾자*/
-            }
-            .designText{
-                display: block;
-                font-size: 20vw;
-                margin-top: 0em;
-                margin-bottom: 0em;
-                margin-left: 0;
-                margin-right: 0;
-                font-weight: bold;
-                color: white;
-            }
-
-            .output{
-                position: fixed;
-                top:0%;
-                width: 100vw;
-                font-size: 2rem;
-                color: #fff;
-                background: rgba(0,0,0,0.4);
-                z-index: 1000;
-            }
-            header{
-                height:50vh;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="main.css">
     </head>
     <body>
         <nav class="output">00</nav>
@@ -237,10 +13,10 @@
                 </div> -->
                 <div class='stage type-a'>
                     <div class="center-half-top z-index-1">
-                        <p class="designText">HOT</p>
+                        <p class="magazineText">NO SANA</p> 
                     </div>
                     <div class="center-half-bottom z-index-10">
-                        <p class="designText">JIHYO</p>
+                        <p class="magazineText">NO LIFE</p>
                     </div>
                     <div class="char jihyo z-index-3"></div>
                 </div>
@@ -248,10 +24,15 @@
         </div>
 
         <div class='container2'>
-                <div class="char sana"></div>
+            <div class="sect2title">
+                <p class='designText'>이 짤 보셨습니까?</p>
+            </div>
+            <div class="char sana"></div>
         </div>
-        <div class='container2'></div>
-    </div>
+
+        <div class='container3'>
+
+        </div>
 
         <script>
             // (function() {
@@ -271,48 +52,68 @@
             (function(){
                 const outputElem = document.querySelector('.output');
                 const jihyoElem = document.querySelector('.char');
+                
+                const sect2title = document.querySelector('.sect2title');
                 const sanaElem = document.querySelector('.sana');
+
                 let num = 0;
 
                 function showValue() {
                     let posY = jihyoElem.getBoundingClientRect().bottom;
                     outputElem.innerHTML = posY;
 
-                    //if(posY<window.innerHeight*0.2) {
+                    // 여기 스크롤 기준점들은 어떻게 동적으로 만들지? // 
+
                     if(posY>1500) {
                         jihyoElem.classList.add('zoom');
                     } else {
                         jihyoElem.classList.remove('zoom');
                     }
 
-                    if(posY>-1100) {
-                        //document.getElementById("p2").style.color = "blue";
-                        sanaElem.style.background = "url('img/sana-01.png') center no-repeat fixed ";
+                    if(posY>-900) {
+                        sect2title.style = "visibility: hidden;";
+                    } else if(posY>-1100) {
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-01.png') center bottom no-repeat fixed ";
                     }else if(posY>-1100) {
-                        sanaElem.style.background = "url('img/sana-02.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-02.png') center bottom no-repeat fixed ";
                     }else if(posY>-1200) {
-                        sanaElem.style.background = "url('img/sana-03.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-03.png') center bottom no-repeat fixed ";
                     }else if(posY>-1300) {
-                        sanaElem.style.background = "url('img/sana-04.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-04.png') center bottom no-repeat fixed ";
                     }else if(posY>-1400) {
-                        sanaElem.style.background = "url('img/sana-05.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-05.png') center bottom no-repeat fixed ";
                     }else if(posY>-1500) {
-                        sanaElem.style.background = "url('img/sana-06.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-06.png') center bottom no-repeat fixed ";
                     }else if(posY>-1600) {
-                        sanaElem.style.background = "url('img/sana-07.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-07.png') center bottom no-repeat fixed ";
                     }else if(posY>-1700) {
-                        sanaElem.style.background = "url('img/sana-08.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-08.png') center bottom no-repeat fixed ";
                     }else if(posY>-1800) {
-                        sanaElem.style.background = "url('img/sana-09.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-09.png') center bottom no-repeat fixed ";
                     }else if(posY>-1900) {
-                        sanaElem.style.background = "url('img/sana-10.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-10.png') center bottom no-repeat fixed ";
                     }else if(posY>-2000) {
-                        sanaElem.style.background = "url('img/sana-11.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-11.png') center bottom no-repeat fixed ";
                     }else if(posY>-2100) {
-                        sanaElem.style.background = "url('img/sana-12.png') center no-repeat fixed ";
+                        sect2title.style = "position:fixed; top:20%;";
+                        sanaElem.style.background = "url('img/sana-12.png') center bottom no-repeat fixed ";
+                    }else{
+                        sect2title.style = "";
                     }
                     
-                    sanaElem.style.backgroundSize = "cover";
+                    sanaElem.style.backgroundSize = "70% 70%";
+                    
                     
                 }
 
